@@ -4,8 +4,8 @@ import sys, select
 from urlparse import urlparse
 from twilio.rest import TwilioRestClient
 
-ACCOUNT_SID = 'ACc918f614700d15867b561eef5a333dc5'
-AUTH_TOKEN = '44d4559b5d2660a7d0af38b77cdbb7fb'
+ACCOUNT_SID = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+AUTH_TOKEN = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY'
 client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
 
 def wait_minute():
@@ -173,7 +173,7 @@ def add_item_to_track(items):
         print "\nEnter price below which you want to be notified:"
         notif_p = float(raw_input())
         temp_item = Item(company, url, notif_p)
-        client.messages.create(to = '+917742090330',from_ = '+19898635482',body = "you will be notified")
+        client.messages.create(to = '+91**********',from_ = '+19898635482',body = "you will be notified")
         
         if temp_item.actual_p < temp_item.notif_p:
             print "\n---------------Item price is already less than notification price---------------"
@@ -225,7 +225,7 @@ def edit_notification_price(items):
     new_price = float(raw_input())
     if new_price >= items[index-1].actual_p:
 	print "\n---------------Entered price is more than the actual price---------------"
-	client.messages.create(to = '+917742090330',from_ = '+19898635482',body = "Sorry. Entered price is more than the actual price")
+	client.messages.create(to = '+91**********',from_ = '+19898635482',body = "Sorry. Entered price is more than the actual price")
 	return
 
     items[index-1].notif_p = new_price
